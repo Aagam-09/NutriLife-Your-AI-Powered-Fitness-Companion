@@ -104,7 +104,7 @@ export function AuthPage() {
             <main className="flex-1 flex flex-col pt-32 px-4 container mx-auto max-w-6xl pb-20 animate-in fade-in zoom-in-95 duration-500">
                 <div className="flex-1 flex bg-card rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/5 border border-border/50 min-h-[500px]">
                     {/* Left side Image Hero */}
-                    <div className="hidden lg:flex flex-1 relative bg-zinc-900 overflow-hidden">
+                    <div className="hidden lg:flex flex-1 relative bg-card overflow-hidden border-r border-border/50">
                         <img
                             src={isLogin
                                 ? "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2670&auto=format&fit=crop"
@@ -130,10 +130,10 @@ export function AuthPage() {
                             <div className="flex items-center gap-4">
                                 <div className="flex -space-x-3">
                                     {[1, 2, 3, 4].map(i => (
-                                        <div key={i} className="w-10 h-10 rounded-full border-2 border-zinc-900 bg-zinc-700/50 backdrop-blur-sm" />
+                                        <div key={i} className="w-10 h-10 rounded-full border-2 border-border/80 bg-muted/50 backdrop-blur-sm" />
                                     ))}
                                 </div>
-                                <p className="text-zinc-300 font-medium text-sm">Join 50,000+ users tracking today.</p>
+                                <p className="text-foreground/80 font-medium text-sm">Join 50,000+ users tracking today.</p>
                             </div>
                         </div>
                     </div>

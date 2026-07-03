@@ -3,57 +3,238 @@
 @tailwind utilities;
 
 @layer base {
+  /* ─────────────────────────────────────────────
+     ☀️  LIGHT MODE  (default)
+  ───────────────────────────────────────────── */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Backgrounds */
+    --background:     210 40% 98%;   /* #F8FAFC */
+    --background-alt: 0   0%  100%;  /* #FFFFFF */
 
-    --card: 80 25% 96%;
-    --card-foreground: 210 20% 16%;
+    /* Surfaces */
+    --card:           0   0%  100%;  /* #FFFFFF */
+    --card-foreground: 221 39% 11%;  /* #111827 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover:        0   0%  100%;
+    --popover-foreground: 221 39% 11%;
 
-    --primary: 88 50% 53%;
-    /* #8BC34A converted */
+    /* Brand greens */
+    --primary:        142 71% 45%;   /* #22C55E */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 83 67% 85%;
-    /* #DFF2C2 converted */
-    --secondary-foreground: 92 49% 46%;
-    /* #6FAE3B converted */
+    --secondary:      85  54%  40%;  /* #16A34A - secondary green */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 25 88% 67%;
-    /* #F4A261 converted */
+    --accent:         83  69%  44%;  /* #84CC16 - lime accent */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 11 80% 61%;
-    /* #E76F51 converted */
-    --destructive-foreground: 210 40% 98%;
+    /* Text */
+    --foreground:     221 39% 11%;   /* #111827 */
+    --muted:          210 40% 96%;
+    --muted-foreground: 215 20% 40%; /* #64748B */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 88 50% 53%;
+    /* Destructive */
+    --destructive:    0   72%  51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders / inputs */
+    --border:         214 32% 89%;   /* #E2E8F0 */
+    --input:          214 32% 89%;
+    --ring:           142 71% 45%;
 
     --radius: 1rem;
   }
 
+  /* ─────────────────────────────────────────────
+     🌙  DARK MODE
+  ───────────────────────────────────────────── */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    /* ... darken other colors here if needed ... */
+    /* Backgrounds */
+    --background:     210 60%  4%;   /* #05090C */
+    --background-alt: 210 55%  7%;   /* #0B1116 */
+
+    /* Surfaces */
+    --card:           210 50%  9%;   /* #11181F */
+    --card-foreground: 213 31% 98%;  /* #F8FAFC */
+
+    --popover:        210 50%  9%;
+    --popover-foreground: 213 31% 98%;
+
+    /* Brand greens – same hue, same energy */
+    --primary:        142 71% 45%;   /* #22C55E */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary:      142 76% 49%;   /* #16E06D */
+    --secondary-foreground: 221 39% 11%;
+
+    --accent:         83  69%  44%;  /* #84CC16 */
+    --accent-foreground: 0 0% 100%;
+
+    /* Text */
+    --foreground:     213 31% 98%;   /* #F8FAFC */
+    --muted:          210 50%  9%;   /* same as card so muted bg blends */
+    --muted-foreground: 215 20% 65%; /* #94A3B8 */
+
+    /* Destructive */
+    --destructive:    0   72%  51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders / inputs */
+    --border:         214 20% 20%;   /* #2B3440 */
+    --input:          214 20% 20%;
+    --ring:           142 71% 45%;
+
+    --radius: 1rem;
   }
 }
 
 @layer base {
-  * {
+  /* Smooth color transitions for theme switching */
+  *,
+  *::before,
+  *::after {
     @apply border-border;
+    transition: background-color 300ms ease, border-color 300ms ease,
+                color 100ms ease, box-shadow 300ms ease;
+  }
+
+  /* But don't transition transforms / layout props */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, box-shadow, opacity;
+    transition-timing-function: ease;
+    transition-duration: 300ms;
+  }
+
+  /* Reset animations on hover / transform elements */
+  .no-transition,
+  .no-transition * {
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* ─────────────────────────────────────────────
+     🎨  CUSTOM SCROLLBAR
+  ───────────────────────────────────────────── */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+
+  /* ─────────────────────────────────────────────
+     ✨  PREMIUM GLOW UTILITIES
+  ───────────────────────────────────────────── */
+  .glow-green {
+    box-shadow:
+      0 0 20px rgba(34, 197, 94, 0.35),
+      0 0 40px rgba(34, 197, 94, 0.15);
+  }
+
+  .dark .glow-green {
+    box-shadow:
+      0 0 20px rgba(34, 197, 94, 0.40),
+      0 0 60px rgba(34, 197, 94, 0.20);
+  }
+
+  /* Card hover glow in dark mode */
+  .dark .card-hover:hover {
+    box-shadow:
+      0 0 0 1px hsl(var(--border)),
+      0 0 24px rgba(34, 197, 94, 0.18),
+      0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ─────────────────────────────────────────────
+     🌈  GRADIENT TEXT HELPERS
+  ───────────────────────────────────────────── */
+  .gradient-text-green {
+    background: linear-gradient(90deg, #84CC16, #4ADE80, #22C55E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Primary button gradient */
+  .btn-gradient {
+    background: linear-gradient(90deg, #84CC16, #22C55E, #16E06D);
+    color: #ffffff;
+    transition: filter 300ms ease, transform 150ms ease;
+  }
+  .btn-gradient:hover {
+    filter: brightness(1.1);
+  }
+
+  /* ─────────────────────────────────────────────
+     🏠  BACKGROUND RADIAL GLOW (dark only)
+  ───────────────────────────────────────────── */
+  .dark .bg-radial-green {
+    background-image:
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(34, 197, 94, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 80% 80%, rgba(132, 204, 22, 0.06) 0%, transparent 60%);
+  }
+
+  /* ─────────────────────────────────────────────
+     🪟  GLASSMORPHISM NAVBAR
+  ───────────────────────────────────────────── */
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .dark .glass-nav {
+    background: rgba(11, 17, 22, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* ─────────────────────────────────────────────
+     🔘  THEME TOGGLE BUTTON
+  ───────────────────────────────────────────── */
+  .theme-toggle {
+    position: relative;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 300ms ease, transform 150ms ease;
+  }
+  .theme-toggle:hover {
+    transform: scale(1.1);
+  }
+  .theme-toggle svg {
+    transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 300ms ease;
+  }
+
+  /* ─────────────────────────────────────────────
+     📊  CHATBOT MARKDOWN STYLES
+  ───────────────────────────────────────────── */
+  .chatbot-markdown p  { @apply mb-2 last:mb-0; }
+  .chatbot-markdown ul { @apply list-disc pl-4 space-y-1; }
+  .chatbot-markdown ol { @apply list-decimal pl-4 space-y-1; }
+  .chatbot-markdown strong { @apply font-bold; }
+  .chatbot-markdown code  {
+    @apply px-1.5 py-0.5 rounded text-xs font-mono bg-muted text-foreground;
   }
 }

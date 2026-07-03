@@ -284,22 +284,22 @@ export function DashboardPage() {
                                 <div className="bg-background rounded-xl p-3 shadow-sm border border-border/50">
                                     <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Protein</p>
                                     <p className="text-lg font-bold mb-2">{Math.round(stats.protein)}<span className="text-xs text-muted-foreground">g</span></p>
-                                    <div className="h-1 w-full bg-secondary rounded-full overflow-hidden">
-                                        <div className="h-full bg-emerald-700 transition-all rounded-full" style={{ width: `${Math.min(100, (stats.protein / 120) * 100)}%` }} />
+                                    <div className="h-1 w-full bg-muted rounded-full overflow-hidden">
+                                        <div className="h-full bg-primary transition-all rounded-full" style={{ width: `${Math.min(100, (stats.protein / 120) * 100)}%` }} />
                                     </div>
                                 </div>
                                 <div className="bg-background rounded-xl p-3 shadow-sm border border-border/50">
                                     <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Carbs</p>
                                     <p className="text-lg font-bold mb-2">{Math.round(stats.carbs)}<span className="text-xs text-muted-foreground">g</span></p>
-                                    <div className="h-1 w-full bg-secondary rounded-full overflow-hidden">
-                                        <div className="h-full bg-emerald-500 transition-all rounded-full" style={{ width: `${Math.min(100, (stats.carbs / 250) * 100)}%` }} />
+                                    <div className="h-1 w-full bg-muted rounded-full overflow-hidden">
+                                        <div className="h-full bg-accent transition-all rounded-full" style={{ width: `${Math.min(100, (stats.carbs / 250) * 100)}%` }} />
                                     </div>
                                 </div>
                                 <div className="bg-background rounded-xl p-3 shadow-sm border border-border/50">
                                     <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Fats</p>
                                     <p className="text-lg font-bold mb-2">{Math.round(stats.fat)}<span className="text-xs text-muted-foreground">g</span></p>
-                                    <div className="h-1 w-full bg-secondary rounded-full overflow-hidden">
-                                        <div className="h-full bg-lime-500 transition-all rounded-full" style={{ width: `${Math.min(100, (stats.fat / 70) * 100)}%` }} />
+                                    <div className="h-1 w-full bg-muted rounded-full overflow-hidden">
+                                        <div className="h-full bg-secondary transition-all rounded-full" style={{ width: `${Math.min(100, (stats.fat / 70) * 100)}%` }} />
                                     </div>
                                 </div>
                             </div>
@@ -383,7 +383,7 @@ export function DashboardPage() {
                                                         fill="currentColor"
                                                         className={cn(
                                                             "transition-colors",
-                                                            val > goal ? "text-emerald-900" : "text-primary/60 hover:text-primary"
+                                                            val > goal ? "text-primary/80" : "text-primary/60 hover:text-primary"
                                                         )}
                                                     >
                                                         <title>{val} kcal</title>
@@ -422,8 +422,8 @@ export function DashboardPage() {
                                                     {m.score != null && (
                                                         <div className={cn(
                                                             "text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider",
-                                                            m.score >= 8 ? "bg-emerald-500/10 text-emerald-600" :
-                                                                m.score >= 5 ? "bg-amber-500/10 text-amber-600" : "bg-red-500/10 text-red-600"
+                                                            m.score >= 8 ? "bg-primary/10 text-primary" :
+                                                                m.score >= 5 ? "bg-accent/10 text-accent" : "bg-destructive/10 text-destructive"
                                                         )}>
                                                             Score: {m.score}/10
                                                         </div>
@@ -627,7 +627,7 @@ export function DashboardPage() {
                         });
                         setShowManualLog(true);
                     }}
-                    className="w-12 h-12 bg-white text-primary border-2 border-primary/20 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform active:scale-95"
+                    className="w-12 h-12 bg-card text-primary border-2 border-primary/20 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform active:scale-95"
                     title="Manual log"
                 >
                     <Plus className="w-6 h-6" />

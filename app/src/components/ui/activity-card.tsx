@@ -55,7 +55,7 @@ export function ActivityCard({
             {/* Header */}
             {/* Header */}
             <div className="flex flex-col items-center justify-center mb-6 bg-gradient-to-b from-primary/10 to-transparent p-6 -mx-6 -mt-6 rounded-t-[2rem] text-center">
-                <div className="p-3 rounded-full bg-background shadow-sm border border-white mb-2">
+                <div className="p-3 rounded-full bg-background shadow-sm border border-border mb-2">
                     <Activity className="w-6 h-6 text-primary" />
                 </div>
                 <div>
@@ -122,12 +122,12 @@ export function ActivityCard({
                                 className={cn(
                                     "w-full flex items-center gap-3 p-3.5 rounded-xl border transition-all cursor-default",
                                     goal.isCompleted
-                                        ? "bg-card border-emerald-500/30 text-emerald-600"
+                                        ? "bg-card border-primary/30 text-primary"
                                         : "bg-card border-border shadow-sm text-foreground"
                                 )}
                             >
-                                <div className={cn("w-8 h-8 rounded-full flex items-center justify-center shrink-0", goal.isCompleted ? "bg-emerald-100" : "bg-primary/10")}>
-                                    <Utensils className={cn("w-4 h-4", goal.isCompleted ? "text-emerald-500" : "text-primary")} />
+                                <div className={cn("w-8 h-8 rounded-full flex items-center justify-center shrink-0", goal.isCompleted ? "bg-primary/20" : "bg-primary/10")}>
+                                    <Utensils className={cn("w-4 h-4", goal.isCompleted ? "text-primary" : "text-primary")} />
                                 </div>
                                 <span
                                     className={cn(

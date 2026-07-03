@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { AppRouter } from './Router'
 
-document.documentElement.classList.remove('dark')
+// Theme is now initialised by the inline script in index.html (FOUC prevention)
+// and managed by ThemeProvider in Router.tsx. No manual class manipulation here.
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

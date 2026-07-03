@@ -70,11 +70,11 @@ function Footerdemo() {
                         <h3 className="mb-4 text-lg font-semibold">Contact Support</h3>
                         <address className="space-y-3 text-sm not-italic text-muted-foreground">
                             <div>
-                                <p className="font-bold text-foreground">Sarjan Shah</p>
+                                <p className="font-bold text-foreground">Aagam Shah</p>
                                 <p className="text-xs">Student</p>
                             </div>
                             <p>SMJV Ahmedabad, opposite Paldi Bus Stand</p>
-                            <p className="font-medium text-primary">+91 6351648593</p>
+                            <p className="font-medium text-primary">+91 9586149171</p>
                             <p>Email: support@nutrilife.ai</p>
                         </address>
                     </div>

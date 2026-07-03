@@ -150,7 +150,7 @@ export function AboutPage() {
                 <section className="py-24 bg-primary text-white text-center">
                     <div className="container mx-auto px-4">
                         <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to join NutriLife?</h2>
-                        <button className="bg-white text-primary hover:bg-zinc-100 font-extrabold py-4 px-12 rounded-2xl shadow-xl transition-transform hover:scale-105 flex items-center gap-3 mx-auto">
+                        <button className="bg-card text-primary hover:bg-muted border border-primary/20 font-extrabold py-4 px-12 rounded-2xl shadow-xl transition-transform hover:scale-105 flex items-center gap-3 mx-auto">
                             <Zap className="w-5 h-5 fill-current" /> Start Your Journey Today
                         </button>
                     </div>

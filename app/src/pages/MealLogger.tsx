@@ -339,14 +339,14 @@ export function MealLoggerPage() {
 
                                 <button
                                     onClick={capturePhoto}
-                                    className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-white text-black shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-10"
+                                    className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-card text-foreground shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-10"
                                 >
-                                    <div className="w-8 h-8 rounded-full border-2 border-black" />
+                                    <div className="w-8 h-8 rounded-full border-2 border-foreground/60" />
                                 </button>
 
                                 <button
                                     onClick={stopCamera}
-                                    className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-all z-10"
+                                    className="absolute top-4 right-4 w-8 h-8 rounded-full bg-muted/70 text-foreground flex items-center justify-center hover:bg-muted transition-all z-10"
                                 >
                                     <X className="w-4 h-4" />
                                 </button>
@@ -369,7 +369,7 @@ export function MealLoggerPage() {
                                         }}
                                         className="w-full bg-card hover:bg-muted border border-border rounded-2xl p-4 flex items-center gap-4 transition-all shadow-sm"
                                     >
-                                        <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
+                                        <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
                                             <Laptop className="w-6 h-6" />
                                         </div>
                                         <div className="text-left">
@@ -385,7 +385,7 @@ export function MealLoggerPage() {
                                         }}
                                         className="w-full bg-card hover:bg-muted border border-border rounded-2xl p-4 flex items-center gap-4 transition-all shadow-sm"
                                     >
-                                        <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+                                        <div className="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
                                             <Camera className="w-6 h-6" />
                                         </div>
                                         <div className="text-left">
@@ -399,17 +399,17 @@ export function MealLoggerPage() {
                     </div>
 
                     {/* Water Intake Card */}
-                    <div className="bg-primary rounded-2xl p-6 flex flex-col justify-between text-white shadow-lg shadow-primary/20 hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
-                        <GlassWater className="w-6 h-6 text-white/80 mb-4" />
+                    <div className="bg-primary rounded-2xl p-6 flex flex-col justify-between text-primary-foreground shadow-lg shadow-primary/20 hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
+                        <GlassWater className="w-6 h-6 text-primary-foreground/80 mb-4" />
                         <div>
-                            <h3 className="text-[10px] font-bold text-white/60 uppercase tracking-widest mb-1">Water Intake</h3>
+                            <h3 className="text-[10px] font-bold text-primary-foreground/60 uppercase tracking-widest mb-1">Water Intake</h3>
                             <div className="flex items-baseline gap-1.5 mb-3">
                                 <span className="text-3xl font-extrabold">{stats.totalWater || 0}</span>
                                 <span className="text-sm font-medium opacity-80">/ {stats.waterGoal || 3000} ml</span>
                             </div>
-                            <div className="h-1.5 w-full bg-white/20 rounded-full overflow-hidden">
+                            <div className="h-1.5 w-full bg-primary-foreground/20 rounded-full overflow-hidden">
                                 <div
-                                    className="h-full bg-white transition-all duration-500"
+                                    className="h-full bg-primary-foreground transition-all duration-500"
                                     style={{ width: `${Math.min(100, ((stats.totalWater || 0) / (stats.waterGoal || 3000)) * 100)}%` }}
                                 />
                             </div>
@@ -427,10 +427,10 @@ export function MealLoggerPage() {
 
                 {/* Display Swap Suggestion Alert */}
                 {swapSuggestion && (
-                    <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-6 mb-8 flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white shrink-0 shadow-sm mt-1">🌿</div>
+                    <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-8 flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground shrink-0 shadow-sm mt-1">🌿</div>
                         <div>
-                            <h3 className="font-extrabold text-lg text-emerald-700 tracking-tight">Smart Swap Found!</h3>
+                            <h3 className="font-extrabold text-lg text-primary tracking-tight">Smart Swap Found!</h3>
                             <p className="text-sm font-medium text-foreground mt-1">
                                 Instead of <span className="font-bold border-b border-dashed border-border">{swapSuggestion.original}</span>,
                                 try <span className="font-bold text-emerald-600">{swapSuggestion.alternative}</span>.
@@ -500,8 +500,8 @@ export function MealLoggerPage() {
                                     <span className="font-bold text-muted-foreground uppercase text-xs tracking-wider">Protein</span>
                                     <span className="text-xl font-bold text-foreground">{Math.round(stats.protein)}g <span className="text-xs text-muted-foreground font-medium">/ 120g</span></span>
                                 </div>
-                                <div className="h-3 w-full bg-secondary rounded-full overflow-hidden">
-                                    <div className="h-full bg-emerald-700 transition-all rounded-full" style={{ width: `${Math.min(100, (stats.protein / 120) * 100)}%` }} />
+                                <div className="h-3 w-full bg-muted rounded-full overflow-hidden">
+                                    <div className="h-full bg-primary transition-all rounded-full" style={{ width: `${Math.min(100, (stats.protein / 120) * 100)}%` }} />
                                 </div>
                             </div>
 
@@ -510,8 +510,8 @@ export function MealLoggerPage() {
                                     <span className="font-bold text-muted-foreground uppercase text-xs tracking-wider">Carbs</span>
                                     <span className="text-xl font-bold text-foreground">{Math.round(stats.carbs)}g <span className="text-xs text-muted-foreground font-medium">/ 250g</span></span>
                                 </div>
-                                <div className="h-3 w-full bg-secondary rounded-full overflow-hidden">
-                                    <div className="h-full bg-emerald-500 transition-all rounded-full" style={{ width: `${Math.min(100, (stats.carbs / 250) * 100)}%` }} />
+                                <div className="h-3 w-full bg-muted rounded-full overflow-hidden">
+                                    <div className="h-full bg-accent transition-all rounded-full" style={{ width: `${Math.min(100, (stats.carbs / 250) * 100)}%` }} />
                                 </div>
                             </div>
 
@@ -520,8 +520,8 @@ export function MealLoggerPage() {
                                     <span className="font-bold text-muted-foreground uppercase text-xs tracking-wider">Fats</span>
                                     <span className="text-xl font-bold text-foreground">{Math.round(stats.fat)}g <span className="text-xs text-muted-foreground font-medium">/ 70g</span></span>
                                 </div>
-                                <div className="h-3 w-full bg-secondary rounded-full overflow-hidden">
-                                    <div className="h-full bg-lime-500 transition-all rounded-full" style={{ width: `${Math.min(100, (stats.fat / 70) * 100)}%` }} />
+                                <div className="h-3 w-full bg-muted rounded-full overflow-hidden">
+                                    <div className="h-full bg-secondary transition-all rounded-full" style={{ width: `${Math.min(100, (stats.fat / 70) * 100)}%` }} />
                                 </div>
                             </div>
 

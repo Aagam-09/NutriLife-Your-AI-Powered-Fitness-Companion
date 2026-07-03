@@ -4,7 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>app</title>
+    <title>NutriLife — AI Nutrition Companion</title>
+
+    <!--
+      Inline theme initialiser — runs before first paint to prevent
+      flash of wrong theme. Must stay in <head>, before any CSS.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('nutrilife-theme');
+          if (stored === 'dark' || stored === 'light') {
+            if (stored === 'dark') document.documentElement.classList.add('dark');
+          } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

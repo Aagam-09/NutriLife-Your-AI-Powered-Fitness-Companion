@@ -165,7 +165,7 @@ export function WorkoutsPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
 
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
-                        <div className="w-fit px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                        <div className="w-fit px-3 py-1 rounded-full bg-muted/70 backdrop-blur-md border border-border/30 text-foreground text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                             {workout.category}
                         </div>
@@ -305,7 +305,7 @@ export function WorkoutsPage() {
 
                 <section className="flex flex-col items-center text-center">
                     <div className="flex flex-col items-center gap-4 mb-10">
-                        <div className="w-14 h-14 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center">
+                        <div className="w-14 h-14 rounded-2xl bg-accent/10 text-accent flex items-center justify-center">
                             <TrendingUp className="w-7 h-7" />
                         </div>
                         <div className="max-w-md">
