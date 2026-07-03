@@ -58,4 +58,4 @@ Frontend runs at `http://127.0.0.1:5173` (default Vite port).
 ## Notes
 
 - Gemini API key usage in `api/services/ai_service.py` is currently disabled, so AI features fall back to default responses.
-# CalorieTracker
+
